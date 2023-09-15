@@ -1,0 +1,56 @@
+.movie {
+  background-color: var(--primary-light);
+  border-radius: 16px;
+  height: 390px;
+  width: 200px;
+}
+
+.movie__poster {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  height: 270px;
+  width: 200px;
+}
+
+.movie__informations {
+  display: flex;
+  flex-direction: column;
+  height: 88px;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.movie__title {
+  color: var(--light);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+.movie__data {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  justify-content: space-between;
+}
+
+.movie__year {
+  background-color: var(--secondary);
+  border-radius: 24px;
+  color: var(--light);
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+}
+
+.movie__duration {
+  align-items: center;
+  color: var(--text);
+  display: flex;
+}
+
+.movie__duration-icon {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+  padding-right: 2;
+}

@@ -1,0 +1,68 @@
+body {
+  background-color: var(--primary);
+  margin: 0;
+}
+
+header {
+  border-bottom-color: var(--tertiary);
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  display: flex;
+  height: fit-content;
+  justify-content: space-between;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.logo {
+  width: 400px;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}
+
+.cards {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  max-width: 1160px;
+}
+
+.title {
+  color: var(--tertiary);
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+}
+
+/* footer */
+footer {
+  margin: 48px;
+}
+
+.footer__text {
+  color: var(--primary-light);
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
+}
+
+.footer__link {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+.footer__link:visited {
+  color: var(--primary-light);
+}
