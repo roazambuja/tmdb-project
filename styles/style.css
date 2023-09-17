@@ -4,17 +4,27 @@ body {
 }
 
 header {
+  align-items: center;
   border-bottom-color: var(--tertiary);
   border-bottom-style: solid;
   border-bottom-width: 5px;
   display: flex;
-  height: fit-content;
   justify-content: space-between;
+  padding-bottom: 16px;
   padding-left: 48px;
   padding-right: 48px;
+  padding-top: 16px;
 }
 
-.logo {
+.header__menu {
+  color: var(--tertiary);
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header__logo {
   width: 400px;
 }
 
@@ -65,4 +75,34 @@ footer {
 
 .footer__link:visited {
   color: var(--primary-light);
+}
+
+@media only screen and (max-width: 768px) {
+  .header__logo {
+    width: 350px;
+  }
+
+  .header__menu {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header__menu {
+    display: none;
+  }
+
+  header {
+    justify-content: center;
+  }
+
+  .footer__text {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header__logo {
+    height: 15px;
+  }
 }
