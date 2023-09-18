@@ -54,7 +54,6 @@ main {
   width: 100%;
 }
 
-/* footer */
 footer {
   margin: 48px;
 }
@@ -88,12 +87,21 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+  header {
+    border-bottom-width: 3px;
+    justify-content: center;
+  }
+
   .header__menu {
     display: none;
   }
 
-  header {
-    justify-content: center;
+  .title {
+    font-size: 24px;
+  }
+
+  .cards {
+    gap: 24px;
   }
 
   .footer__text {
