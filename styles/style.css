@@ -3,6 +3,10 @@ body {
   margin: 0;
 }
 
+.body__modal-opened {
+  overflow: hidden;
+}
+
 header {
   align-items: center;
   border-bottom-color: var(--tertiary);
