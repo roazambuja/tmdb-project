@@ -15,4 +15,7 @@ function toggleModal() {
   let modal = document.getElementById("demo-modal");
   document.body.classList.toggle("body__modal-opened");
   modal.classList.toggle("modal__target");
+
+  let altura = document.body.scrollTop;
+  modal.style.top = altura;
 }
