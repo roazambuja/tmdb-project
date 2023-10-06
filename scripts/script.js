@@ -1,10 +1,9 @@
-let cards = [];
-
 window.onload = function () {
   let divCards = document.getElementById("cards");
   movies.forEach((movie) => {
     let movieCard = document.createElement("div");
     movieCard.classList.add("movie");
+    movieCard.id = movie.id;
 
     let moviePoster = document.createElement("img");
     moviePoster.classList.add("movie__poster");
@@ -47,16 +46,12 @@ window.onload = function () {
     movieCard.append(moviePoster);
     movieCard.append(movieInformations);
     divCards.append(movieCard);
-  });
 
-  cards = document.getElementsByClassName("movie");
+    movieCard.addEventListener("click", toggleModal);
+  });
 
   let buttonCloseModal = document.getElementById("modal__close");
   buttonCloseModal.addEventListener("click", toggleModal);
-
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("click", toggleModal);
-  }
 };
 
 function toggleModal() {
