@@ -60,22 +60,13 @@ function Modal(movie) {
     let modalCategories = document.createElement("div");
     modalCategories.classList.add("modal__categories");
 
-    // change to dinamic categories
-    let modalCategory1 = document.createElement("span");
-    modalCategory1.classList.add("modal__category");
-    modalCategory1.appendChild(document.createTextNode("Aventura"));
+    this.movieData.genres.forEach((genre) => {
+      let modalCategory = document.createElement("span");
+      modalCategory.classList.add("modal__category");
+      modalCategory.appendChild(document.createTextNode(genre));
 
-    let modalCategory2 = document.createElement("span");
-    modalCategory2.classList.add("modal__category");
-    modalCategory2.appendChild(document.createTextNode("Ação"));
-
-    let modalCategory3 = document.createElement("span");
-    modalCategory3.classList.add("modal__category");
-    modalCategory3.appendChild(document.createTextNode("Fantasia"));
-
-    modalCategories.appendChild(modalCategory1);
-    modalCategories.appendChild(modalCategory2);
-    modalCategories.appendChild(modalCategory3);
+      modalCategories.appendChild(modalCategory);
+    });
 
     modalFooter.appendChild(modalDuration);
     modalFooter.appendChild(modalCategories);

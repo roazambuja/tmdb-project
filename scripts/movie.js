@@ -1,6 +1,6 @@
-function Movie(backdrop, genres, id, overview, poster, releaseDate, title) {
+function Movie(backdrop, genres_id, id, overview, poster, releaseDate, title) {
   this.backdrop = backdrop;
-  this.genres = genres;
+  this.genres = [];
   this.id = id;
   this.overview = overview;
   this.poster = poster;
@@ -9,6 +9,14 @@ function Movie(backdrop, genres, id, overview, poster, releaseDate, title) {
   this.releaseYear = date[0];
 
   this.title = title;
+
+  genres_id.forEach((id) => {
+    genres.forEach((genre) => {
+      if (genre.id == id) {
+        this.genres.push(genre.name);
+      }
+    });
+  });
 
   this.card = undefined;
 
