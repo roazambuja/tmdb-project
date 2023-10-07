@@ -58,6 +58,12 @@ function Movie(backdrop, genres, id, overview, poster, releaseDate, title) {
     this.card.append(movieInformations);
     divCards.append(this.card);
 
-    this.card.addEventListener("click", toggleModal);
+    this.card.addEventListener("click", this.handleClick);
+  };
+
+  this.handleClick = () => {
+    const modal = new Modal(this);
+    modal.render();
+    toggleModal();
   };
 }

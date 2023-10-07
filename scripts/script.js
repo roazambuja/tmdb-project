@@ -11,13 +11,18 @@ window.onload = function () {
     );
     m.render();
   });
-
-  let buttonCloseModal = document.getElementById("modal__close");
-  buttonCloseModal.addEventListener("click", toggleModal);
 };
 
 function toggleModal() {
-  let modal = document.getElementById("demo-modal");
+  let modal = document.getElementById("modal");
+
+  if (modal.classList.contains("modal__target")) {
+    document.body.removeChild(modal);
+    document.body.classList.toggle("body__modal-opened");
+
+    return;
+  }
+
   document.body.classList.toggle("body__modal-opened");
   modal.classList.toggle("modal__target");
 
