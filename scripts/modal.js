@@ -96,7 +96,7 @@ function Modal(movie) {
 
     modalClose.appendChild(iconClose);
 
-    modalClose.addEventListener("click", toggleModal);
+    modalClose.addEventListener("click", this.closeModal);
 
     modalContent.appendChild(modalImage);
     modalContent.appendChild(modalInformations);
@@ -104,5 +104,13 @@ function Modal(movie) {
     this.element.appendChild(modalContent);
 
     document.body.appendChild(this.element);
+
+    document.body.classList.toggle("body__modal-opened");
+    this.element.style.top = document.body.scrollTop;
+  };
+
+  this.closeModal = () => {
+    document.body.removeChild(this.element);
+    document.body.classList.toggle("body__modal-opened");
   };
 }

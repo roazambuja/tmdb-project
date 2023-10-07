@@ -64,6 +64,5 @@ function Movie(backdrop, genres, id, overview, poster, releaseDate, title) {
   this.handleClick = () => {
     const modal = new Modal(this);
     modal.render();
-    toggleModal();
   };
 }

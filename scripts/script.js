@@ -12,20 +12,3 @@ window.onload = function () {
     m.render();
   });
 };
-
-function toggleModal() {
-  let modal = document.getElementById("modal");
-
-  if (modal.classList.contains("modal__target")) {
-    document.body.removeChild(modal);
-    document.body.classList.toggle("body__modal-opened");
-
-    return;
-  }
-
-  document.body.classList.toggle("body__modal-opened");
-  modal.classList.toggle("modal__target");
-
-  let altura = document.body.scrollTop;
-  modal.style.top = altura;
-}
