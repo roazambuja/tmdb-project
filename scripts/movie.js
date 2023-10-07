@@ -4,7 +4,10 @@ function Movie(backdrop, genres, id, overview, poster, releaseDate, title) {
   this.id = id;
   this.overview = overview;
   this.poster = poster;
-  this.releaseDate = releaseDate;
+
+  let date = releaseDate.split("-");
+  this.releaseYear = date[0];
+
   this.title = title;
 
   this.card = undefined;
@@ -35,8 +38,7 @@ function Movie(backdrop, genres, id, overview, poster, releaseDate, title) {
 
     let spanYear = document.createElement("span");
     spanYear.classList.add("movie__year");
-    let date = this.releaseDate.split("-");
-    spanYear.innerText = date[0];
+    spanYear.innerText = this.releaseYear;
 
     let spanDuration = document.createElement("span");
     spanDuration.classList.add("movie__duration");

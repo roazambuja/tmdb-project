@@ -29,7 +29,7 @@ function Modal(movie) {
 
     let modalDirector = document.createElement("h3");
     modalDirector.appendChild(
-      document.createTextNode(`${this.movieData.releaseDate} - Diretor`)
+      document.createTextNode(`${this.movieData.releaseYear} - Diretor`)
     );
     modalDirector.classList.add("modal__director");
 
