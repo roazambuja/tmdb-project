@@ -32,6 +32,11 @@ header {
   width: 400px;
 }
 
+#series,
+#movies {
+  cursor: pointer;
+}
+
 main {
   align-items: center;
   display: flex;
