@@ -12,7 +12,7 @@ function Movie(backdrop, genres_id, id, overview, poster, releaseDate, title) {
 
   genres_id.forEach((id) => {
     genres.forEach((genre) => {
-      if (genre.id == id) {
+      if (genre.id == id && this.genres.length < 3) {
         this.genres.push(genre.name);
       }
     });
