@@ -22,8 +22,9 @@ function Ranking() {
     }
   };
 
-  this.renderItens = function () {
-    let list = this.selected == "movies" ? movies : series;
+  this.renderItens = async function () {
+    // let list = this.selected == "movies" ? movies : series;
+    let list = this.selected == "movies" && (await getMovies());
     pageTitle.innerText = "Top 10 - " + (this.selected == "movies" ? "Filmes" : "Séries");
 
     list.forEach((item) => {

@@ -29,10 +29,7 @@ function Movie(backdrop, genres_id, id, overview, poster, releaseDate, title) {
 
     let moviePoster = document.createElement("img");
     moviePoster.classList.add("movie__poster");
-    moviePoster.setAttribute(
-      "src",
-      `https://image.tmdb.org/t/p/original${this.poster}`
-    );
+    moviePoster.setAttribute("src", `https://image.tmdb.org/t/p/original${this.poster}`);
 
     let movieInformations = document.createElement("div");
     movieInformations.classList.add("movie__informations");
@@ -75,4 +72,15 @@ function Movie(backdrop, genres_id, id, overview, poster, releaseDate, title) {
     const modal = new Modal(this);
     modal.render();
   };
+
+  this.getDirector = async function () {
+    let crewList = await getMovieCrew(this.id);
+    crewList.map((crew) => {
+      if (crew.job == "Director") {
+        this.directorName = crew.name;
+      }
+    });
+  };
+
+  this.getDirector();
 }

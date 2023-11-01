@@ -12,10 +12,7 @@ function Modal(movie) {
 
     let modalImage = document.createElement("img");
     modalImage.classList.add("modal__backdrop");
-    modalImage.setAttribute(
-      "src",
-      `https://image.tmdb.org/t/p/original${this.movieData.backdrop}`
-    );
+    modalImage.setAttribute("src", `https://image.tmdb.org/t/p/original${this.movieData.backdrop}`);
 
     let modalInformations = document.createElement("div");
     modalInformations.classList.add("modal__informations");
@@ -29,7 +26,7 @@ function Modal(movie) {
 
     let modalDirector = document.createElement("h3");
     modalDirector.appendChild(
-      document.createTextNode(`${this.movieData.releaseYear} - Diretor`)
+      document.createTextNode(`${this.movieData.releaseYear} - ${this.movieData.directorName}`)
     );
     modalDirector.classList.add("modal__director");
 
