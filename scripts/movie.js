@@ -1,4 +1,4 @@
-function Movie(backdrop, id, overview, poster, releaseDate, title) {
+function Movie(backdrop, id, overview, poster, releaseDate, title, type) {
   this.backdrop = backdrop;
   this.genres = [];
   this.id = id;
@@ -6,13 +6,24 @@ function Movie(backdrop, id, overview, poster, releaseDate, title) {
   this.poster = poster;
   this.title = title;
   this.card = undefined;
+  this.type = type;
 
   let date = releaseDate.split("-");
   this.releaseYear = date[0];
 
   this.getDetails = async function () {
-    let { runtime, genres } = await getMovieDetails(this.id);
-    this.runtime = runtime;
+    if (this.type == "movies") {
+      let { runtime, genres } = await getMovieDetails(this.id);
+      this.runtime = runtime;
+      this.getGenreNames(genres);
+    } else if (this.type == "series") {
+      let { genres, number_of_episodes } = await getSerieDetails(this.id);
+      this.runtime = number_of_episodes;
+      this.getGenreNames(genres);
+    }
+  };
+
+  this.getGenreNames = function (genres) {
     genres.forEach((genre) => {
       if (this.genres.length < 3) {
         this.genres.push(genre.name);
@@ -21,6 +32,8 @@ function Movie(backdrop, id, overview, poster, releaseDate, title) {
   };
 
   this.render = async function () {
+    this.type == "movies" && (await this.getDirector());
+
     let divCards = document.getElementById("cards");
 
     this.card = document.createElement("div");
@@ -56,7 +69,9 @@ function Movie(backdrop, id, overview, poster, releaseDate, title) {
     await this.getDetails();
 
     spanDuration.appendChild(spanIcon);
-    spanDuration.appendChild(document.createTextNode(`${this.runtime}min`));
+    spanDuration.appendChild(
+      document.createTextNode(this.runtime + (this.type == "movies" ? "min" : " EPs"))
+    );
     movieData.appendChild(spanYear);
     movieData.appendChild(spanDuration);
 
@@ -83,6 +98,4 @@ function Movie(backdrop, id, overview, poster, releaseDate, title) {
       }
     });
   };
-
-  this.getDirector();
 }

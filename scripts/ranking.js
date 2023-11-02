@@ -23,7 +23,7 @@ function Ranking() {
   };
 
   this.renderItens = async function () {
-    let list = this.selected == "movies" ? await getMovies() : series;
+    let list = this.selected == "movies" ? await getMovies() : await getSeries();
     pageTitle.innerText = "Top 10 - " + (this.selected == "movies" ? "Filmes" : "Séries");
 
     list.forEach((item) => {
@@ -33,7 +33,8 @@ function Ranking() {
         item.overview,
         item.poster_path,
         this.selected == "movies" ? item.release_date : item.first_air_date,
-        this.selected == "movies" ? item.title : item.name
+        this.selected == "movies" ? item.title : item.name,
+        this.selected == "movies" ? "movies" : "series"
       );
       i.render();
     });
