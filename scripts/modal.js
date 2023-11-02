@@ -26,7 +26,10 @@ function Modal(movie) {
 
     let modalDirector = document.createElement("h3");
     modalDirector.appendChild(
-      document.createTextNode(`${this.movieData.releaseYear} - ${this.movieData.directorName}`)
+      document.createTextNode(
+        this.movieData.releaseYear +
+          (this.movieData.type == "movies" ? ` - ${this.movieData.directorName}` : "")
+      )
     );
     modalDirector.classList.add("modal__director");
 
@@ -52,7 +55,11 @@ function Modal(movie) {
     modalDurationIcon.innerText = "schedule";
 
     modalDuration.appendChild(modalDurationIcon);
-    modalDuration.appendChild(document.createTextNode(`${this.movieData.runtime}min`));
+    modalDuration.appendChild(
+      document.createTextNode(
+        this.movieData.runtime + (this.movieData.type == "movies" ? "min" : " EPs")
+      )
+    );
 
     let modalCategories = document.createElement("div");
     modalCategories.classList.add("modal__categories");
