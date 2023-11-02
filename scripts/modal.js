@@ -52,7 +52,7 @@ function Modal(movie) {
     modalDurationIcon.innerText = "schedule";
 
     modalDuration.appendChild(modalDurationIcon);
-    modalDuration.appendChild(document.createTextNode("155min"));
+    modalDuration.appendChild(document.createTextNode(`${this.movieData.runtime}min`));
 
     let modalCategories = document.createElement("div");
     modalCategories.classList.add("modal__categories");

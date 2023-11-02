@@ -23,14 +23,12 @@ function Ranking() {
   };
 
   this.renderItens = async function () {
-    // let list = this.selected == "movies" ? movies : series;
-    let list = this.selected == "movies" && (await getMovies());
+    let list = this.selected == "movies" ? await getMovies() : series;
     pageTitle.innerText = "Top 10 - " + (this.selected == "movies" ? "Filmes" : "Séries");
 
     list.forEach((item) => {
       let i = new Movie(
         item.backdrop_path,
-        item.genre_ids,
         item.id,
         item.overview,
         item.poster_path,

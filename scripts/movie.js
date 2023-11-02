@@ -1,26 +1,26 @@
-function Movie(backdrop, genres_id, id, overview, poster, releaseDate, title) {
+function Movie(backdrop, id, overview, poster, releaseDate, title) {
   this.backdrop = backdrop;
   this.genres = [];
   this.id = id;
   this.overview = overview;
   this.poster = poster;
+  this.title = title;
+  this.card = undefined;
 
   let date = releaseDate.split("-");
   this.releaseYear = date[0];
 
-  this.title = title;
-
-  genres_id.forEach((id) => {
+  this.getDetails = async function () {
+    let { runtime, genres } = await getMovieDetails(this.id);
+    this.runtime = runtime;
     genres.forEach((genre) => {
-      if (genre.id == id && this.genres.length < 3) {
+      if (this.genres.length < 3) {
         this.genres.push(genre.name);
       }
     });
-  });
+  };
 
-  this.card = undefined;
-
-  this.render = function () {
+  this.render = async function () {
     let divCards = document.getElementById("cards");
 
     this.card = document.createElement("div");
@@ -53,8 +53,10 @@ function Movie(backdrop, genres_id, id, overview, poster, releaseDate, title) {
     spanIcon.classList.add("movie__duration-icon");
     spanIcon.innerText = "schedule";
 
+    await this.getDetails();
+
     spanDuration.appendChild(spanIcon);
-    spanDuration.appendChild(document.createTextNode("155min"));
+    spanDuration.appendChild(document.createTextNode(`${this.runtime}min`));
     movieData.appendChild(spanYear);
     movieData.appendChild(spanDuration);
 
