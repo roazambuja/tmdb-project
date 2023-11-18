@@ -103,12 +103,10 @@ footer {
 
 @media only screen and (max-width: 600px) {
   header {
-    border-bottom-width: 3px;
+    border-bottom-width: 1px;
+    flex-direction: column-reverse;
+    gap: 24px;
     justify-content: center;
-  }
-
-  .header__menu {
-    display: none;
   }
 
   .title {
