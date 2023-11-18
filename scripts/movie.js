@@ -47,9 +47,17 @@ function Movie(backdrop, id, overview, poster, releaseDate, title, type) {
     let movieInformations = document.createElement("div");
     movieInformations.classList.add("movie__informations");
 
+    let formatedTitle = this.title;
+    if (this.title.length > 40) {
+      formatedTitle =
+        formatedTitle.charAt(39) == " " ? this.title.substring(0, 39) : this.title.substring(0, 40);
+      formatedTitle += "...";
+    }
+
     let movieTitle = document.createElement("h2");
     movieTitle.classList.add("movie__title");
-    movieTitle.appendChild(document.createTextNode(this.title));
+    movieTitle.appendChild(document.createTextNode(formatedTitle));
+    this.title.length > 40 && (movieTitle.style.fontSize = 16);
 
     let movieData = document.createElement("div");
     movieData.classList.add("movie__data");
