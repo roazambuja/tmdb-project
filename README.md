@@ -39,6 +39,6 @@ O layout base da aplicação pode ser visualizado no [Figma](https://www.figma.c
   <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/"> <img height="35" width="35" alt="HTML" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /></a> 
 </div>
 
-## :link: Consumo de dados:
+## 🔗 Consumo de dados:
 
 - Utilizada a API [The Movie Database](https://developer.themoviedb.org/reference/intro/getting-started)
